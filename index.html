@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agro Forte e Sustentável | Agrinho 2026</title>
+    <!-- Links para os arquivos separados -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body class="bg-areia text-gray-800 font-sans">
+
+    <!-- Cabeçalho -->
+    <header class="relative bg-gradient-to-r from-verde to-verdeClaro text-white py-16 px-4 overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')] bg-cover bg-center"></div>
+        <div class="relative max-w-5xl mx-auto text-center animar">
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 drop-shadow-md">🌱 Agro Forte e Sustentável</h1>
+            <p class="text-xl md:text-2xl font-light mb-2">Trabalho do Estudante do Campo</p>
+            <p class="text-lg opacity-90">Concurso Agrinho 2026</p>
+            <div class="mt-8 flex flex-wrap justify-center gap-3">
+                <a href="#calculadora" class="btn-principal inline-block"><i class="fa fa-calculator mr-2"></i> Calculadora</a>
+                <a href="#rotacao" class="btn-principal inline-block bg-destaque hover:bg-amber-600"><i class="fa fa-exchange mr-2"></i> Rotação de Culturas</a>
+                <a href="#adubacao" class="btn-principal inline-block bg-blue-600 hover:bg-blue-700"><i class="fa fa-leaf mr-2"></i> Adubação</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto p-5 md:p-8">
+
+        <!-- O que é Agro Sustentável -->
+        <section class="card-destaque animar" style="animation-delay: 0.2s">
+            <div class="icone-circular">
+                <i class="fa fa-lightbulb-o"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-verde mb-4">🌿 O que significa?</h2>
+            <p class="text-gray-700 leading-relaxed text-lg">
+                Agro forte não é só produzir muito — é produzir com inteligência! É usar a terra, a água e os recursos naturais de forma equilibrada, garantindo que a produção continue crescendo sem destruir o meio ambiente. É o caminho certo para o futuro do campo!
+            </p>
+        </section>
+
+        <!-- 1. Calculadora de Água -->
+        <section id="calculadora" class="card-destaque animar" style="animation-delay: 0.4s">
+            <div class="icone-circular">
+                <i class="fa fa-tint"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-verde mb-4">💧 Calculadora de Economia de Água</h2>
+            <p class="text-gray-600 mb-6">Descubra quanto você economiza ao usar irrigação controlada!</p>
+            
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label class="block mb-2 font-medium text-gray-700">Área plantada (m²):</label>
+                    <input type="number" id="area" min="1" step="0.1" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-verde" placeholder="Ex: 1500">
+                </div>
+                <div>
+                    <label class="block mb-2 font-medium text-gray-700">Tipo de cultura:</label>
+                    <select id="cultura" class="w-full p-4 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-verde">
+                        <option value="milho">🌽 Milho</option>
+                        <option value="soja">🌱 Soja</option>
+                        <option value="feijao">🫘 Feijão</option>
+                        <option value="cafe">☕ Café</option>
+                        <option value="hortaliças">🥬 Hortaliças</option>
+                        <option value="trigo">🌾 Trigo</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="calcularEconomia()" class="btn-principal w-full md:w-auto">
+                <i class="fa fa-calculator mr-2"></i> Calcular Economia
+            </button>
+
+            <div id="resultado" class="mt-7 p-5 rounded-xl border-l-4 hidden transition-all duration-500">
+                <h3 class="font-bold text-xl mb-3">📊 Resultado:</h3>
+                <p id="textoResultado" class="text-lg leading-relaxed"></p>
+            </div>
+        </section>
+
+        <!-- 2. Planejador de Rotação de Culturas -->
+        <section id="rotacao" class="card-destaque animar" style="animation-delay: 0.5s">
+            <div class="icone-circular">
+                <i class="fa fa-exchange"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-verde mb-4">🔄 Planejador de Rotação de Culturas</h2>
+            <p class="text-gray-600 mb-4">Alternar culturas melhora o solo, reduz pragas e aumenta a produção!</p>
+
+            <div class="grid md:grid-cols-3 gap-4 mb-6">
+                <div>
+                    <label class="block mb-2 font-medium">Ano 1:</label>
+                    <select id="ano1" class="w-full p-3 border rounded-lg">
+                        <option value="leguminosa">Soja / Feijão (fixa nitrogênio)</option>
+                        <option value="cereal">Milho / Trigo</option>
+                        <option value="raiz">Mandioca / Batata</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block mb-2 font-medium">Ano 2:</label>
+                    <select id="ano2" class="w-full p-3 border rounded-lg">
+                        <option value="cereal">Milho / Trigo</option>
+                        <option value="leguminosa">Soja / Feijão</option>
+                        <option value="raiz">Mandioca / Batata</option>
+                    </select>
+                </div>
+                <div>
+                    <label class="block mb-2 font-medium">Ano 3:</label>
+                    <select id="ano3" class="w-full p-3 border rounded-lg">
+                        <option value="raiz">Mandioca / Batata</option>
+                        <option value="cereal">Milho / Trigo</option>
+                        <option value="leguminosa">Soja / Feijão</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="verificarRotacao()" class="btn-secundario">
+                <i class="fa fa-check-circle mr-2"></i> Verificar se está correto
+            </button>
+
+            <div id="resultadoRotacao" class="mt-5 p-4 rounded-lg hidden"></div>
+        </section>
+
+        <!-- 3. Calculadora de Adubação Orgânica -->
+        <section id="adubacao" class="card-destaque animar" style="animation-delay: 0.6s">
+            <div class="icone-circular">
+                <i class="fa fa-leaf"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-verde mb-4">🌱 Calculadora de Adubação Orgânica</h2>
+            <p class="text-gray-600 mb-4">Substitua parte dos químicos por adubos naturais e mais baratos!</p>
+
+            <div class="grid md:grid-cols-2 gap-6 mb-6">
+                <div>
+                    <label class="block mb-2 font-medium">Área (m²):</label>
+                    <input type="number" id="areaAdubo" min="1" step="1" class="w-full p-3 border rounded-lg" placeholder="Ex: 1000">
+                </div>
+                <div>
+                    <label class="block mb-2 font-medium">Tipo de adubo:</label>
+                    <select id="tipoAdubo" class="w-full p-3 border rounded-lg">
+                        <option value="esterco">Esterco curtido</option>
+                        <option value="composto">Adubo orgânico composto</option>
+                        <option value="cascalho">Cascalho vegetal</option>
+                    </select>
+                </div>
+            </div>
+
+            <button onclick="calcularAdubo()" class="btn-secundario bg-green-600 hover:bg-green-700">
+                <i class="fa fa-calculator mr-2"></i> Calcular quantidade
+            </button>
+
+            <div id="resultadoAdubo" class="mt-5 p-4 rounded-lg bg-green-50 border-l-4 border-verde hidden"></div>
+        </section>
+
+        <!-- 4. Dicas Rápidas -->
+        <section class="card-destaque animar" style="animation-delay: 0.7s">
+            <div class="icone-circular">
+                <i class="fa fa-lightbulb-o"></i>
+            </div>
+            <h2 class="text-3xl font-bold text-verde mb-4">💡 Dicas Rápidas para um Agro Forte</h2>
+            <ul class="space-y-3 text-gray-700">
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-verde mt-1 mr-2"></i>
+                    <span>Preserve as matas ciliares ao redor de rios e nascentes — elas garantem água limpa.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-verde mt-1 mr-2"></i>
+                    <span>Use cobertura morta (palha, folhas secas) para proteger o solo do sol e da chuva.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-verde mt-1 mr-2"></i>
+                    <span>Controle pragas com métodos naturais antes de usar produtos químicos.</span>
+                </li>
+                <li class="flex items-start">
+                    <i class="fa fa-check-circle text-verde mt-1 mr-2"></i>
+                    <span>Economizar água é também economizar dinheiro e garantir produção na seca.</span>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Conclusão -->
+        <section class="bg-gradient-to-r from-verde to-verdeClaro text-white rounded-2xl p-8 text-center mt-8 animar" style="animation-delay: 0.8s">
+            <h2 class="text-3xl font-bold mb-4">🌿 O Futuro é Sustentável!</h2>
+            <p class="text-xl italic max-w-3xl mx-auto">
+                "Um agro forte é aquele que respeita a terra, cuida da água e valoriza o trabalho do homem do campo. 
+                Cuidar do meio ambiente não é gastar, é investir na produção para sempre!"
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="bg-terra text-white py-7 px-4 text-center mt-10">
+        <p class="text-lg">Trabalho desenvolvido por estudante do campo</p>
+        <p class="text-sm opacity-80 mt-1">Agrinho 2026 | Tema: Agro Forte e Sustentável</p>
+    </footer>
+
+    <!-- Arquivo JavaScript separado -->
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+/* Configuração do Tailwind */
+tailwind.config = {
+    theme: {
+        extend: {
+            colors: {
+                verde: '#2E7D32',
+                verdeClaro: '#66BB6A',
+                terra: '#8D6E63',
+                areia: '#F5F1E9',
+                agua: '#2196F3',
+                destaque: '#FF9800',
+                alerta: '#F57C00'
+            },
+            fontFamily: {
+                sans: ['Poppins', 'Arial', 'sans-serif'],
+            },
+        }
+    }
+}
+
+/* Estilos personalizados */
+@layer utilities {
+    .sombra-suave { 
+        box-shadow: 0 4px 20px rgba(0,0,0,0.08); 
+    }
+    
+    .card-destaque { 
+        @apply bg-white rounded-2xl sombra-suave p-7 border-l-4 border-verde transition-all duration-300 hover:shadow-lg hover:-translate-y-1; 
+    }
+    
+    .btn-principal { 
+        @apply bg-verde hover:bg-green-700 text-white font-semibold py-3 px-8 rounded-xl transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-verde/50; 
+    }
+    
+    .btn-secundario { 
+        @apply bg-destaque hover:bg-amber-600 text-white font-semibold py-2 px-4 rounded-lg transition-all duration-300; 
+    }
+    
+    .icone-circular { 
+        @apply w-14 h-14 flex items-center justify-center rounded-full bg-verde/10 text-verde text-2xl mb-4; 
+    }
+    
+    .animar { 
+        animation: aparecer 0.8s ease-out; 
+    }
+}
+
+/* Animações */
+@keyframes aparecer { 
+    from { 
+        opacity: 0; 
+        transform: translateY(20px); 
+    } 
+    to { 
+        opacity: 1; 
+        transform: translateY(0); 
+    } 
+}
